@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header default 1`] = `
+.c0 {
+  background: pink;
+}
+
+.c0 p {
+  display: inline-block;
+  margin: 1em;
+}
+
+<header
+  class="c0"
+>
+  <p>
+    <a
+      href="/"
+    >
+      top
+    </a>
+  </p>
+  <p>
+    <a
+      href="/about"
+    >
+      about
+    </a>
+  </p>
+  <p>
+    <a
+      href="/404"
+    >
+      404
+    </a>
+  </p>
+</header>
+`;

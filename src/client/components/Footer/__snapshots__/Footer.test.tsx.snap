@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer default 1`] = `
+.c0 {
+  background: pink;
+}
+
+.c0 p {
+  display: inline-block;
+  margin: 1em;
+}
+
+<footer
+  class="c0"
+>
+  <p>
+    Footer
+  </p>
+</footer>
+`;

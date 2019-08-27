@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link to '/' 1`] = `
+<a
+  href="/"
+/>
+`;
+
+exports[`Link to '/about' 1`] = `
+<a
+  href="/about"
+/>
+`;
