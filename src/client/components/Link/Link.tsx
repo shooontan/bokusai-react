@@ -10,7 +10,7 @@ export default class CustomLink extends React.Component<LinkProps> {
   };
 
   preloadRouteComponent(to: LinkProps['to']) {
-    const path = typeof to === 'string' ? to : to.pathname || '/';
+    const path = typeof to === 'string' ? to : '/';
     const matchingRoute = this.findRoute(path, routes);
     if (matchingRoute && this.isLoadableComponent(matchingRoute.component)) {
       matchingRoute.component.preload();
