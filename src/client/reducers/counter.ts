@@ -1,15 +1,18 @@
-import { CounterAction } from '~/client/actions/counterAction';
 import { Reducer } from 'redux';
+import * as actions from '~/client/actions/counterAction';
+import { ActionTypesCreator } from '~/client/reducers/utils';
 
-export interface CounterState {
+type Actions = ActionTypesCreator<typeof actions>;
+
+export type CounterState = {
   count: number;
-}
+};
 
 export const initialCounterState: CounterState = {
   count: 0,
 };
 
-export const counterReducer: Reducer<CounterState, CounterAction> = (
+export const counterReducer: Reducer<CounterState, Actions> = (
   state = initialCounterState,
   action
 ) => {
@@ -31,7 +34,7 @@ export const counterReducer: Reducer<CounterState, CounterAction> = (
     case 'FORCE': {
       return {
         ...state,
-        count: state.count,
+        count: action.payload,
       };
     }
 

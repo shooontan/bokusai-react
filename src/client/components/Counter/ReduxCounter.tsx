@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '~/client/reducers';
-import { increment, decrement } from '~/client/actions/counterAction';
+import * as actions from '~/client/actions/counterAction';
 
 const ReduxCounter = () => {
   const dispatch = useDispatch();
@@ -10,8 +10,9 @@ const ReduxCounter = () => {
     <div>
       Counter with Redux
       <p>{count}</p>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
+      <button onClick={() => dispatch(actions.increment())}>+</button>
+      <button onClick={() => dispatch(actions.decrement())}>-</button>
+      <button onClick={() => dispatch(actions.force(0))}>0</button>
     </div>
   );
 };

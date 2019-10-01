@@ -1,32 +1,15 @@
-import { Action } from 'redux';
+export const increment = () =>
+  ({
+    type: 'INCREMENT',
+  } as const);
 
-export type AppAction<T extends string, Extra extends {} = {}> = Action<T> &
-  { [K in keyof Extra]: Extra[K] };
+export const decrement = () =>
+  ({
+    type: 'DECREMENT' as const,
+  } as const);
 
-enum ActionType {
-  increment = 'INCREMENT',
-  decrement = 'DECREMENT',
-  force = 'FORCE',
-}
-
-export type CounterAction =
-  | AppAction<ActionType.increment>
-  | AppAction<ActionType.decrement>
-  | AppAction<ActionType.force, { count: number }>;
-
-const increment = (): CounterAction => ({
-  type: ActionType.increment,
-});
-
-const decrement = (): CounterAction => ({
-  type: ActionType.decrement,
-});
-
-const force = (num: number): CounterAction => {
-  return {
-    type: ActionType.force,
-    count: num,
-  };
-};
-
-export { increment, decrement, force };
+export const force = (num: number) =>
+  ({
+    type: 'FORCE',
+    payload: num,
+  } as const);
