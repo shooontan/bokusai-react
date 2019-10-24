@@ -6,13 +6,19 @@ const Header = () => {
   return (
     <StyledHeader>
       <p>
-        <Link to="/">top</Link>
+        <Link to="/" exact>
+          top
+        </Link>
       </p>
       <p>
-        <Link to="/about">about</Link>
+        <Link to="/about" exact>
+          about
+        </Link>
       </p>
       <p>
-        <Link to="/404">404</Link>
+        <Link to="/404" exact>
+          404
+        </Link>
       </p>
     </StyledHeader>
   );

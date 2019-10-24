@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { Link, LinkProps, matchPath } from 'react-router-dom';
+import { NavLink, NavLinkProps, matchPath } from 'react-router-dom';
 import { LoadableComponent } from '@loadable/component';
 import { routes, NotFoundPage } from '~/app/app';
 import { CustomRouteConfig } from '~/types/app.type';
 
-export default class CustomLink extends React.Component<LinkProps> {
+export type CustomLinkProps = NavLinkProps;
+
+export default class CustomLink extends React.Component<NavLinkProps> {
   state = {
     preloaded: false,
   };
 
-  preloadRouteComponent(to: LinkProps['to']) {
+  preloadRouteComponent(to: NavLinkProps['to']) {
     const path = typeof to === 'string' ? to : '/';
     const matchingRoute = this.findRoute(path, routes);
     if (matchingRoute && this.isLoadableComponent(matchingRoute.component)) {
@@ -51,6 +53,6 @@ export default class CustomLink extends React.Component<LinkProps> {
   };
 
   render() {
-    return <Link onMouseEnter={this.handleMouseEnter} {...this.props} />;
+    return <NavLink onMouseEnter={this.handleMouseEnter} {...this.props} />;
   }
 }
