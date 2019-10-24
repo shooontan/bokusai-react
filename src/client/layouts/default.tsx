@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Header from '~/client/components/Header';
 import Footer from '~/client/components/Footer';
 import GlobalStyle from '@/client/layouts/GlobalStyle';
+import { Helmet } from 'react-helmet-async';
 
 const HookCounter = loadable(() =>
   import('~/client/components/Counter/HookCounter')
@@ -16,6 +17,12 @@ const Layout: React.FC = props => {
   return (
     <Inner>
       <GlobalStyle />
+      <Helmet>
+        <script
+          crossOrigin="anonymous"
+          src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CIntersectionObserverEntry"
+        />
+      </Helmet>
       <Header />
       <Main>
         {props.children}

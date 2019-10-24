@@ -81,6 +81,7 @@ export default function ssr() {
           helmet.meta.toString() +
           helmet.title.toString() +
           helmet.link.toString() +
+          helmet.script.toString() +
           webExtractor.getLinkTags() +
           webExtractor.getStyleTags() +
           sheet.getStyleTags() +
