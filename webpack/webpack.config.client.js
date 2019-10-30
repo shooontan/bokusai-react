@@ -9,6 +9,7 @@ const pkgdir = resolve(__dirname, '..');
 let configClient = merge(require('./webpack.config.common'), {
   name: 'client',
   target: 'web',
+  stats: 'minimal',
   entry: {
     bundle: [
       'react-hot-loader/patch',

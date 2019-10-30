@@ -10,7 +10,7 @@
     "dev": "rm -rf dist/* && babel-node src/server/server -x '.js','.jsx','.ts','.tsx'",
     "prebuild": "rm -rf dist/*",
     "build": "yarn build:webpack && yarn build:babel",
-    "build:webpack": "NODE_ENV=production webpack -p --mode production --hide-modules",
+    "build:webpack": "NODE_ENV=production webpack -p --mode production",
     "build:babel": "NODE_ENV=production babel ./src/ -D -d dist -x '.js,.jsx,.ts,.tsx'",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "test": "jest",
