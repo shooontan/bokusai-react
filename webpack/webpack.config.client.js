@@ -6,10 +6,10 @@ const WebpackBar = require('webpackbar');
 const isProd = process.env.NODE_ENV === 'production';
 const pkgdir = resolve(__dirname, '..');
 
-let configClient = merge(require('./webpack.config.common'), {
+const target = 'web';
+
+let configClient = merge(require('./webpack.config.common')({ target }), {
   name: 'client',
-  target: 'web',
-  stats: 'minimal',
   entry: {
     bundle: [
       'react-hot-loader/patch',

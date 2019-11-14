@@ -9,9 +9,10 @@ const pkgDir = require('pkg-dir');
 const isProd = process.env.NODE_ENV === 'production';
 const pkgdir = pkgDir.sync(__dirname);
 
-let configServer = merge(require('./webpack.config.common'), {
+const target = 'node';
+
+let configServer = merge(require('./webpack.config.common')({ target }), {
   name: 'server',
-  target: 'node',
   node: {
     __dirname: false,
     __filename: false,

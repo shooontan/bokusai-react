@@ -1,10 +1,9 @@
-module.exports = api => {
-  api.cache(true);
+const isTargetWeb = caller => caller && caller.target === 'web';
+// const isBabelLoader = caller => caller && caller.name === 'babel-loader';
 
-  const presetEnvTargets =
-    process.env.BUILD_TARGET === 'client'
-      ? { browsers: 'last 2 versions' } // for production client build
-      : { node: 'current' }; // for development build
+module.exports = api => {
+  const isWeb = api.caller(isTargetWeb);
+  // const isWebpack = api.caller(isBabelLoader);
 
   return {
     presets: [
@@ -12,7 +11,11 @@ module.exports = api => {
       [
         '@babel/preset-env',
         {
-          targets: presetEnvTargets,
+          useBuiltIns: isWeb ? 'usage' : undefined,
+          corejs: isWeb ? 3 : false,
+          targets: isWeb
+            ? { browsers: 'last 2 versions' }
+            : { node: 'current' },
         },
       ],
       '@babel/preset-typescript',
