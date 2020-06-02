@@ -1201,6 +1201,11 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
+"@shooontan/tsconfig@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@shooontan/tsconfig/-/tsconfig-0.0.1.tgz#2ce19251143a72e13404a70e9a6b89f82c8a0c8b"
+  integrity sha512-+aqJXMqtvUxV+sDg7GecFwLfXr1+5NOO3JPkuwKN6i2w256KXHmcIWtYf4h9Wqnixc/dcfUl06drz8y195jX1A==
+
 "@testing-library/dom@^6.0.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.1.0.tgz#8d5a954158e81ecd7c994907f4ec240296ed823b"

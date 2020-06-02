@@ -4,7 +4,7 @@ import loadable from '@loadable/component';
 
 const Layout = loadable(() => import('~/client/layouts/default'));
 
-interface NotFoundProps {
+export interface NotFoundProps {
   staticContext?: {
     status?: number;
   };
