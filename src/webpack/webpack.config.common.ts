@@ -1,11 +1,14 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const LoadablePlugin = require('@loadable/webpack-plugin');
+import * as webpack from 'webpack';
+import merge from 'webpack-merge';
+import LoadablePlugin from '@loadable/webpack-plugin';
+import { isDev } from './utils';
 
-const isProd = process.env.NODE_ENV === 'production';
+type CommonConfigArgs = {
+  target: webpack.Configuration['target'];
+};
 
-module.exports = ({ target }) => {
-  let config = {
+export const webpackBaseConfig = ({ target }: CommonConfigArgs) => {
+  let config: webpack.Configuration = {
     target,
     mode: 'development',
     devtool: 'source-map',
@@ -38,7 +41,7 @@ module.exports = ({ target }) => {
     ],
   };
 
-  if (!isProd) {
+  if (isDev) {
     config = merge(config, {
       resolve: {
         alias: { 'react-dom': '@hot-loader/react-dom' },

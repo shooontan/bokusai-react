@@ -42,7 +42,7 @@ export const getFilename = (
   return path.join(
     outputPath,
     Array.isArray(filename)
-      ? filename.find(asset => /\.js$/.test(asset))
+      ? filename.find(asset => /\.js$/.test(asset)) || ''
       : filename
   );
 };

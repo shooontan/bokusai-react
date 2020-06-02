@@ -18,7 +18,9 @@ const options: Options = {
   chunkName: 'entry.server',
 };
 
-const hotServerMiddleware = (multiCompiler: MultiCompiler | Compiler) => {
+export const hotServerMiddleware = (
+  multiCompiler: MultiCompiler | Compiler
+) => {
   if (!isMultiCompiler(multiCompiler)) {
     throw new Error('compiler is not multiCompiler');
   }
@@ -74,5 +76,3 @@ const hotServerMiddleware = (multiCompiler: MultiCompiler | Compiler) => {
     return renderer(req, res, next);
   };
 };
-
-module.exports = hotServerMiddleware;
