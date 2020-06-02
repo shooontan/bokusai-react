@@ -13,7 +13,7 @@ Server & Client with React development environment template.
   - styled-components
 - Hot Reload (server & client)
   - webpack
-  - react-hot-loader
+  - react-refresh
 - Dynamic Import
   - loadable-components
 
