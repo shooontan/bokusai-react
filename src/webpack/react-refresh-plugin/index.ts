@@ -6,7 +6,7 @@ export class ReactFreshPlugin {
     compiler.options.entry = injectedEntry;
 
     const isUserResource = (resource: string) =>
-      !/node_modules/.test(resource) && /(js|ts)x?/;
+      !/node_modules/.test(resource) && /(js|ts)x?/.test(resource);
 
     compiler.hooks.normalModuleFactory.tap(this.constructor.name, nmf => {
       nmf.hooks.afterResolve.tap(this.constructor.name, data => {
