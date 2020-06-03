@@ -11,7 +11,6 @@ let webpackClientConfig = merge(
     name: 'client',
     entry: {
       bundle: [
-        'react-hot-loader/patch',
         'webpack-hot-middleware/client?timeout=10000',
         join(pkgdir, 'src', 'app', 'app.client'),
       ],

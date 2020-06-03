@@ -21,7 +21,6 @@ module.exports = api => {
       '@babel/preset-typescript',
     ],
     plugins: [
-      'react-hot-loader/babel',
       '@loadable/babel-plugin',
       [
         'babel-plugin-styled-components',

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Switch } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import { hot } from 'react-hot-loader/root';
 import loadable from '@loadable/component';
 import { CustomRouteConfig } from '~/types/app.type';
 
@@ -17,4 +16,4 @@ export const routes: CustomRouteConfig[] = [
 
 const App = () => <Switch>{renderRoutes(routes)}</Switch>;
 
-export default hot(App);
+export default App;

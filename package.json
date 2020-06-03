@@ -17,7 +17,6 @@
     "typecheck": "yarn tsc --noEmit"
   },
   "dependencies": {
-    "@hot-loader/react-dom": "^16.9.0",
     "@loadable/component": "^5.10.2",
     "@loadable/server": "^5.10.2",
     "express": "^4.17.1",
@@ -25,7 +24,6 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet-async": "^1.0.2",
-    "react-hot-loader": "^4.12.11",
     "react-redux": "^7.1.0",
     "react-router": "^5.1.0",
     "react-router-config": "^5.1.0",
