@@ -2,6 +2,8 @@ const isTargetWeb = caller => caller && caller.target === 'web';
 // const isBabelLoader = caller => caller && caller.name === 'babel-loader';
 
 module.exports = api => {
+  api.cache.using(() => process.env.NODE_ENV);
+
   const isWeb = api.caller(isTargetWeb);
   // const isWebpack = api.caller(isBabelLoader);
 
@@ -21,17 +23,7 @@ module.exports = api => {
       '@babel/preset-typescript',
     ],
     plugins: [
-      'react-hot-loader/babel',
-      '@loadable/babel-plugin',
-      [
-        'babel-plugin-styled-components',
-        {
-          ssr: true,
-          displayName: true,
-        },
-      ],
-      '@babel/plugin-syntax-dynamic-import',
-      '@babel/plugin-proposal-class-properties',
+      isWeb && !api.env('production') && 'react-refresh/babel',
       [
         'module-resolver',
         {
@@ -42,6 +34,16 @@ module.exports = api => {
           },
         },
       ],
-    ],
+      '@loadable/babel-plugin',
+      [
+        'babel-plugin-styled-components',
+        {
+          ssr: true,
+          displayName: true,
+        },
+      ],
+      '@babel/plugin-syntax-dynamic-import',
+      '@babel/plugin-proposal-class-properties',
+    ].filter(Boolean),
   };
 };

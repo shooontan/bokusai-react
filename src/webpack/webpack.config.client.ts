@@ -4,6 +4,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackBar from 'webpackbar';
 import { webpackBaseConfig } from './webpack.config.common';
 import { isDev, pkgdir, getTarget } from './utils';
+import { ReactFreshPlugin } from './react-refresh-plugin';
 
 let webpackClientConfig = merge(
   webpackBaseConfig({ target: getTarget('web') }),
@@ -11,7 +12,6 @@ let webpackClientConfig = merge(
     name: 'client',
     entry: {
       bundle: [
-        'react-hot-loader/patch',
         'webpack-hot-middleware/client?timeout=10000',
         join(pkgdir, 'src', 'app', 'app.client'),
       ],
@@ -39,6 +39,12 @@ let webpackClientConfig = merge(
     ],
   }
 );
+
+if (isDev) {
+  webpackClientConfig = merge(webpackClientConfig, {
+    plugins: [new ReactFreshPlugin()],
+  });
+}
 
 if (!isDev) {
   webpackClientConfig = merge(webpackClientConfig, {

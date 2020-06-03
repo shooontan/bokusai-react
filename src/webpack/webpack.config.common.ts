@@ -1,7 +1,5 @@
 import * as webpack from 'webpack';
-import merge from 'webpack-merge';
 import LoadablePlugin from '@loadable/webpack-plugin';
-import { isDev } from './utils';
 
 type CommonConfigArgs = {
   target: webpack.Configuration['target'];
@@ -40,14 +38,6 @@ export const webpackBaseConfig = ({ target }: CommonConfigArgs) => {
       new LoadablePlugin(),
     ],
   };
-
-  if (isDev) {
-    config = merge(config, {
-      resolve: {
-        alias: { 'react-dom': '@hot-loader/react-dom' },
-      },
-    });
-  }
 
   return config;
 };
